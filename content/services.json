@@ -1,0 +1,129 @@
+{
+  "solar-pv": {
+    "title": "Solar PV Systems",
+    "benefits": [
+      "Lower bills",
+      "Net-metering ready",
+      "Reliable Kerala-ready design"
+    ],
+    "specs": [
+      [
+        "Panel Type",
+        "Mono PERC / TOPCon"
+      ],
+      [
+        "Mounting",
+        "Aluminium, SS fasteners"
+      ],
+      [
+        "Protection",
+        "SPD, Earthing, Lightning arrestor"
+      ]
+    ],
+    "brands": [
+      "Jinko, Trina, Longi"
+    ],
+    "paybackYears": "3\u20136 years depending on tariff and usage",
+    "notes": "Corrosion-resistant mounts near coast; periodic cleaning during monsoon gaps."
+  },
+  "inverters": {
+    "title": "Inverters",
+    "benefits": [
+      "High efficiency",
+      "Remote monitoring"
+    ],
+    "specs": [
+      [
+        "Type",
+        "String / Hybrid"
+      ],
+      [
+        "MPPT",
+        "2\u20136 MPPT"
+      ],
+      [
+        "IP Rating",
+        "IP65/66"
+      ]
+    ],
+    "brands": [
+      "Solis, Sungrow, SMA, Huawei"
+    ],
+    "paybackYears": "\u2014",
+    "notes": "Ensure BIS compliance & ventilation; avoid salt-mist exposure."
+  },
+  "batteries": {
+    "title": "Batteries",
+    "benefits": [
+      "Backup during outages",
+      "Boost self-consumption"
+    ],
+    "specs": [
+      [
+        "Chemistry",
+        "Lithium (LFP)"
+      ],
+      [
+        "Capacity",
+        "3\u201320 kWh"
+      ],
+      [
+        "Cycles",
+        ">6000"
+      ]
+    ],
+    "brands": [
+      "Pylontech, BYD, Growatt"
+    ],
+    "paybackYears": "5\u20138 years typical",
+    "notes": "Install in ventilated, shaded area; keep BMS firmware updated."
+  },
+  "epc": {
+    "title": "EPC (Design & Install)",
+    "benefits": [
+      "Turnkey delivery",
+      "KSEB approvals handled"
+    ],
+    "specs": [
+      [
+        "Survey",
+        "On-site assessment"
+      ],
+      [
+        "Design",
+        "PV sizing, layouts"
+      ],
+      [
+        "Approvals",
+        "KSEB net-metering"
+      ]
+    ],
+    "brands": [],
+    "paybackYears": "\u2014",
+    "notes": "We follow MNRE guidelines and BIS/ISI standards."
+  },
+  "om": {
+    "title": "O&M / AMC",
+    "benefits": [
+      "Peak performance",
+      "Safety checks"
+    ],
+    "specs": [
+      [
+        "Cleaning",
+        "Scheduled"
+      ],
+      [
+        "Testing",
+        "IR, IV, earthing"
+      ],
+      [
+        "Reporting",
+        "Monthly/Quarterly"
+      ]
+    ],
+    "brands": [],
+    "paybackYears": "\u2014",
+    "notes": "Monsoon-season checks for corrosion and water ingress."
+  }
+}

@@ -1,7 +1,8 @@
 import Link from "next/link";
+
 export function Footer() {
   return (
-    <footer className="bg-black/[.03] mt-16">
+    <footer className="bg-neutral-100 mt-16">
       <div className="mx-auto max-w-7xl px-4 py-12 grid md:grid-cols-4 gap-8 text-sm">
         <div>
           <h4 className="font-semibold mb-2">Address</h4>

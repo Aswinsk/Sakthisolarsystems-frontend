@@ -2,27 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Default brand variables (overridden at runtime from content/brand.json) */
-:root {
-  --color-primary: #F59E0B;
-  --color-primary-dark: #D97706;
-  --color-primary-light: #FDE68A;
-  --color-secondary: #0B7C66;
-  --color-secondary-dark: #065F4B;
-  --color-secondary-light: #6EE7B7;
-  --color-accent: #FFCC80;
-  --header-height: 76px;
-}
-
-html, body { height: 100%; scroll-behavior: smooth; background: #fff; color: #111827; }
-.ribbon { background: linear-gradient(90deg, var(--color-secondary), var(--color-primary)); color: white; }
-
-/* 3D/Parallax helpers */
-.layered-hero {
-  perspective: 1200px;
-}
-.layer {
-  transform-style: preserve-3d;
-}
-.tilt:hover { transform: rotateX(6deg) rotateY(-6deg); transition: transform 400ms ease; }
-.shadow-soft { box-shadow: 0 16px 40px rgba(0,0,0,0.08); }
+:root { --header-height: 72px; }
+html, body { height: 100%; scroll-behavior: smooth; }
+.ribbon { background: linear-gradient(90deg, #0B7C66, #F59E0B); color: white; }

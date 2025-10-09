@@ -1,10 +1,9 @@
-export function estimateSystemFromBill(monthlyBillINR: number) {
-  const avgTariff = 7;
-  const monthlyKWh = monthlyBillINR / avgTariff;
-  const recommendedKW = Math.max(1, Math.round((monthlyKWh / 120) * 10) / 10);
-  const genKWh = Math.round(recommendedKW * 120);
-  const billReductionPct = Math.min(95, Math.round((genKWh / Math.max(1, monthlyKWh)) * 100));
-  const capexPerKW = 65000;
-  const paybackYears = Math.max(2.5, Math.round(((recommendedKW * capexPerKW) / (genKWh * avgTariff * 12)) * 10) / 10);
-  return { recommendedKW, genKWh, billReductionPct, paybackYears };
+export function estimateSystemFromBill(b:number){
+  const t=7, m=b/t;
+  const r=Math.max(1,Math.round((m/120)*10)/10);
+  const g=Math.round(r*120);
+  const p=Math.min(95,Math.round((g/Math.max(1,m))*100));
+  const c=65000;
+  const y=Math.max(2.5,Math.round(((r*c)/(g*t*12))*10)/10);
+  return { recommendedKW:r, genKWh:g, billReductionPct:p, paybackYears:y };
 }

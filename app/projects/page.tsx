@@ -7,7 +7,7 @@ export default function ProjectsPage() {
       <div className="grid md:grid-cols-3 gap-4">
         {projects.map((p: any, i: number) => (
           <div key={i} className="rounded-xl border p-4 bg-white shadow-sm">
-            <div className="relative h-40 rounded-lg overflow-hidden mb-3">
+            <div className="relative h-40 rounded-lg overflow-hidden mb-3 bg-white">
               <img src={p.image} alt={p.title} className="w-full h-full object-cover"/>
             </div>
             <h3 className="font-semibold">{p.title}</h3>

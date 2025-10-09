@@ -1,4 +1,3 @@
-// app/layout.tsx
 import type { Metadata } from "next";
 import "./globals.css";
 import { Header } from "@/components/Header";
@@ -9,7 +8,6 @@ export const metadata: Metadata = {
   title: "Solar Solutions in Kerala | Save on KSEB Bills",
   description:
     "On-grid, hybrid, and off-grid solar PV in Kerala. MNRE & BIS-compliant systems. Net-metering with KSEB. Free quotes and site visits.",
-  // ✅ metadataBase must be at the ROOT of `metadata`, not inside openGraph
   metadataBase: new URL("https://sakthisolarsystems.vercel.app"),
   openGraph: {
     title: "Solar Solutions in Kerala",
@@ -33,16 +31,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en">
       <body className="font-body text-neutral-800">
         <div className="ribbon text-center text-sm py-1">Established since 1999</div>
-
-        <Suspense fallback={<div className="h-[var(--header-height)]" />}>
+        <Suspense fallback={<div className="h-[var(--header-height)]" />}> 
           <Header />
         </Suspense>
-
         <main className="min-h-[60vh]">{children}</main>
         <Footer />
-
-        {/* GA4 / Meta Pixel placeholders */}
-        {/* <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXX" /> */}
       </body>
     </html>
   );

@@ -3,10 +3,10 @@ import { useState } from "react";
 
 export default function ContactPage() {
   const [ok, setOk] = useState(false);
-  const [trap, setTrap] = useState(""); // honeypot
+  const [trap, setTrap] = useState("");
 
   async function onSubmit(formData: FormData) {
-    if (trap) return; // bot
+    if (trap) return;
     const res = await fetch("/api/contact", { method: "POST", body: formData });
     if (res.ok) setOk(true);
   }
@@ -35,14 +35,11 @@ export default function ContactPage() {
             <input name="rooftopArea" type="number" placeholder="Rooftop area (sq m)" className="border rounded-md px-3 py-2"/>
           </div>
           <textarea name="message" rows={4} placeholder="Message" className="border rounded-md px-3 py-2"/>
-          {/* honeypot */}
           <input name="company" value={trap} onChange={e=>setTrap(e.target.value)} className="hidden" tabIndex={-1} autoComplete="off" />
           <div className="flex gap-3">
             <button className="px-4 py-2 rounded-md bg-primary text-white text-sm">Send Enquiry</button>
             <a className="px-4 py-2 rounded-md bg-secondary text-white text-sm"
-               href="https://wa.me/91XXXXXXXXXX?text=Hi%2C%20please%20book%20a%20site%20visit">
-              WhatsApp
-            </a>
+               href="https://wa.me/91XXXXXXXXXX?text=Hi%2C%20please%20book%20a%20site%20visit">WhatsApp</a>
           </div>
         </form>
       )}

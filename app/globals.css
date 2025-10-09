@@ -2,16 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --header-height: 72px;
-}
-
-html, body {
-  height: 100%;
-  scroll-behavior: smooth;
-}
-
-.ribbon {
-  background: linear-gradient(90deg, #0B7C66, #F59E0B);
-  color: white;
-}
+:root { --header-height: 72px; }
+html, body { height: 100%; scroll-behavior: smooth; }
+.ribbon { background: linear-gradient(90deg, #0B7C66, #F59E0B); color: white; }

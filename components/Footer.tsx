@@ -31,7 +31,7 @@ export function Footer() {
         </div>
       </div>
       <div className="border-t py-4 text-center text-xs">
-        © {new Date().getFullYear()} Your Company Name. All rights reserved.
+        © {new Date().getFullYear()} Sakthi Solar Systems. All rights reserved.
       </div>
     </footer>
   );

@@ -1,6 +1,6 @@
 {
   "common": {
-    "companyName": "Your Company Name",
+    "companyName": "Sakthi Solar Systems",
     "primaryCTA": "Get a Free Solar Quote",
     "secondaryCTA": "Request a Site Visit",
     "whatsapp": "Chat on WhatsApp",
@@ -18,37 +18,9 @@
       "Monsoon-proof design"
     ],
     "whyTitle": "Why Go Solar in Kerala",
-    "whyCards": [
-      {
-        "title": "Lower KSEB Bills",
-        "desc": "Generate your own power and offset your monthly electricity costs."
-      },
-      {
-        "title": "Net-Metering Ready",
-        "desc": "KSEB-compatible solutions with guidance on approvals."
-      },
-      {
-        "title": "Monsoon-Proof",
-        "desc": "Corrosion-resistant mounts, IP-rated junctions, and robust wiring."
-      },
-      {
-        "title": "Low Maintenance",
-        "desc": "Periodic cleaning and quick-check AMC keep systems efficient."
-      }
-    ],
     "solutionsTitle": "Our Solutions",
     "estimatorTitle": "Savings Estimator (INR)",
-    "estimatorBillLabel": "Your monthly KSEB bill (₹)",
-    "estimatorCta": "Estimate Savings",
     "processTitle": "Our Process",
-    "processSteps": [
-      "Site survey",
-      "Design & Proposal",
-      "KSEB approvals",
-      "Installation",
-      "Commissioning",
-      "AMC support"
-    ],
     "brandsTitle": "Certifications & Brands",
     "projectsTitle": "Featured Projects",
     "testimonialsTitle": "What Clients Say",

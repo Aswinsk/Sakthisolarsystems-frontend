@@ -8,10 +8,10 @@
     "paybackYears": 4.2,
     "inverter": "SMA 10kW",
     "battery": null,
-    "image": "/og-image.png"
+    "image": "/images/project-kochi.svg"
   },
   {
-    "title": "5 kW Hybrid with Battery | Trivandrum",
+    "title": "5 kW Hybrid with Battery | Thiruvananthapuram",
     "location": "Thiruvananthapuram",
     "sizeKW": 5,
     "monthlyKWh": 600,
@@ -19,7 +19,7 @@
     "paybackYears": 5.1,
     "inverter": "Solis 5kW Hybrid",
     "battery": "Lithium 5 kWh",
-    "image": "/og-image.png"
+    "image": "/images/project-trivandrum.svg"
   },
   {
     "title": "50 kW Commercial | Kozhikode",
@@ -30,6 +30,6 @@
     "paybackYears": 3.8,
     "inverter": "Huawei 50kW",
     "battery": null,
-    "image": "/og-image.png"
+    "image": "/images/project-kozhikode.svg"
   }
 ]

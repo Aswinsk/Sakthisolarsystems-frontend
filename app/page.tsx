@@ -1,8 +1,6 @@
-import Image from "next/image";
 import Link from "next/link";
 import { Estimator } from "@/components/Estimator";
 import projects from "@/content/projects.json";
-import faqs from "@/content/faqs.json";
 import { Card } from "@/components/Card";
 import { CTAButton } from "@/components/CTAButton";
 
@@ -30,8 +28,8 @@ export default function HomePage() {
               <CTAButton href="/contact#site-visit" variant="secondary">Request a Site Visit</CTAButton>
             </div>
           </div>
-          <div className="relative h-72 md:h-96 rounded-xl overflow-hidden shadow">
-            <Image src="/og-image.png" alt="Kerala rooftop solar" fill className="object-cover" />
+          <div className="relative h-72 md:h-96 rounded-xl overflow-hidden shadow bg-white">
+            <img src="/images/hero-rooftop.svg" alt="Kerala rooftop solar" className="w-full h-full object-cover" />
           </div>
         </div>
       </section>
@@ -109,7 +107,7 @@ export default function HomePage() {
           <div className="grid md:grid-cols-3 gap-4">
             {projects.slice(0,3).map((p:any, i:number)=>(
               <Card key={i}>
-                <div className="relative h-40 rounded-lg overflow-hidden mb-3">
+                <div className="relative h-40 rounded-lg overflow-hidden mb-3 bg-white">
                   <img src={p.image} alt={p.title} className="w-full h-full object-cover"/>
                 </div>
                 <h3 className="font-semibold">{p.title}</h3>

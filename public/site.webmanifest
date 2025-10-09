@@ -1,9 +1,2 @@
-{
-  "name": "Kerala Solar",
-  "short_name": "Solar",
-  "start_url": "/",
-  "display": "standalone",
-  "background_color": "#ffffff",
-  "theme_color": "#F59E0B",
-  "icons": []
-}
+{ "name": "Sakthi Solar Systems", "short_name": "Sakthi Solar", "start_url": "/", "display": "standalone",
+  "background_color": "#ffffff", "theme_color": "#F59E0B", "icons": [] }

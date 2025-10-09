@@ -1,9 +1,6 @@
 export default function robots() {
   return {
-    rules: {
-      userAgent: "*",
-      allow: "/"
-    },
-    sitemap: "https://example.com/sitemap.xml"
+    rules: { userAgent: "*", allow: "/" },
+    sitemap: "https://sakthisolarsystems.vercel.app/sitemap.xml"
   };
 }

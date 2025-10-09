@@ -5,6 +5,7 @@ import { estimateSystemFromBill } from "@/lib/calc";
 export function Estimator() {
   const [bill, setBill] = useState<string>("3000");
   const [res, setRes] = useState<any>(null);
+
   return (
     <div className="rounded-xl border p-6 bg-white shadow-sm">
       <label className="block text-sm mb-1">Your monthly KSEB bill (₹)</label>
@@ -21,15 +22,27 @@ export function Estimator() {
       >
         Estimate Savings
       </button>
-      {res and (
+
+      {res && (
         <div className="grid md:grid-cols-4 gap-4 mt-4 text-sm">
-          <div className="p-3 rounded-lg bg-neutral-100">Recommended Size: <b>{res.recommendedKW} kW</b></div>
-          <div className="p-3 rounded-lg bg-neutral-100">Monthly Generation: <b>{res.genKWh} kWh</b></div>
-          <div className="p-3 rounded-lg bg-neutral-100">Bill Reduction: <b>{res.billReductionPct}%</b></div>
-          <div className="p-3 rounded-lg bg-neutral-100">Payback: <b>{res.paybackYears} years</b></div>
+          <div className="p-3 rounded-lg bg-neutral-100">
+            Recommended Size: <b>{res.recommendedKW} kW</b>
+          </div>
+          <div className="p-3 rounded-lg bg-neutral-100">
+            Monthly Generation: <b>{res.genKWh} kWh</b>
+          </div>
+          <div className="p-3 rounded-lg bg-neutral-100">
+            Bill Reduction: <b>{res.billReductionPct}%</b>
+          </div>
+          <div className="p-3 rounded-lg bg-neutral-100">
+            Payback: <b>{res.paybackYears} years</b>
+          </div>
         </div>
       )}
-      <p className="mt-3 text-xs text-neutral-500">* Rough estimates. Site-specific results vary with usage, orientation, and shading.</p>
+
+      <p className="mt-3 text-xs text-neutral-500">
+        * Rough estimates. Site-specific results vary with usage, orientation, and shading.
+      </p>
     </div>
   );
 }

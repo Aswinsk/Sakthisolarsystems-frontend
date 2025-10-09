@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import type { Metadata } from "next";
 import "./globals.css";
 import { Header } from "@/components/Header";
@@ -9,6 +10,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Solar Solutions in Kerala",
     description: "MNRE & BIS-compliant on-grid, hybrid & off-grid solar systems across Kerala.",
+    metadataBase: new URL("https://sakthisolarsystems.vercel.app"),
     images: ["/og-image.png"],
     url: "https://example.com",
     siteName: "Kerala Solar"
@@ -30,7 +32,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en">
       <body className="font-body text-neutral-800">
         <div className="ribbon text-center text-sm py-1">Established since 1999</div>
-        <Header />
+       <Suspense fallback={<div className="h-[var(--header-height)]" />}>
+  <Header />
+</Suspense>
         <main className="min-h-[60vh]">{children}</main>
         <Footer />
         {/* GA4 / Meta Pixel placeholders */}

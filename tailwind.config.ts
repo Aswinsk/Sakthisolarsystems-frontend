@@ -1,1 +1,12 @@
-export default { content:["./app/**/*.{ts,tsx}","./components/**/*.{ts,tsx}"], theme:{ extend:{ colors:{ primary:{DEFAULT:"var(--color-primary)"}, secondary:{DEFAULT:"var(--color-secondary)"} } } }, plugins:[] };
+export default {
+  content: ["./app/**/*.{ts,tsx}", "./components/**/*.{ts,tsx}"],
+  theme: {
+    extend: {
+      colors: {
+        primary: { DEFAULT: "var(--color-primary)" },
+        secondary: { DEFAULT: "var(--color-secondary)" }
+      }
+    }
+  },
+  plugins: []
+};

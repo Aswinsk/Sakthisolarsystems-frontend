@@ -1,5 +1,4 @@
 :root{--color-primary:#F59E0B;--color-secondary:#0B7C66;--header-height:76px}
+@tailwind base;@tailwind components;@tailwind utilities;
 .ribbon{background:linear-gradient(90deg,var(--color-secondary),var(--color-primary));color:#fff}
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+.shadow-soft{box-shadow:0 16px 40px rgba(0,0,0,.08)}

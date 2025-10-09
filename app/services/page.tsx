@@ -13,7 +13,7 @@ export default function ServicesPage() {
       <ul className="grid md:grid-cols-2 gap-4">
         {services.map(([name, href]) => (
           <li key={href}>
-            <Link href={href} className="block rounded-xl border p-5 bg-white shadow-sm hover:shadow-md">
+            <Link href={href} className="block rounded-2xl border p-5 bg-white shadow-soft hover:translate-y-[-2px] transition">
               {name}
             </Link>
           </li>

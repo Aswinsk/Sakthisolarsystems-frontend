@@ -1,17 +1,21 @@
-# Sakthi Solar Systems — Kerala Website
+# Sakthi Solar Systems — 3D Website
 
-## Quick Start
+- Next.js 14 + TS + Tailwind + Framer Motion
+- 3D tilt, parallax-style hero, lots of image placeholders
+- Brand colours loaded from **/public/brand.json** (edit to match your logo)
+
+## Run
 ```bash
 npm install
 npm run dev
 ```
 
-## Update your details
-- Phone & WhatsApp: `components/Header.tsx`, i18n files in `content/i18n/`
-- Copy & images: `app/page.tsx`, `content/projects.json`
-- SEO base URLs: `app/layout.tsx` (metadataBase & OG url), `app/sitemap.ts`, `app/robots.ts`
+## Change brand colours
+Edit **public/brand.json** (hex codes). The site reads them at runtime and updates CSS variables.
+
+## Logo
+Your uploaded logo is saved at **/public/brand/logo.pdf** (also keep **/public/logo.svg** as a fallback for the header). For best results, upload a PNG/SVG later.
 
 ## Deploy
-Push to GitHub → Import on Vercel → Deploy.
-
-Build generated on: 2025-10-09T11:18:55.158258Z
+Push to GitHub → Vercel → Deploy.
+Built: 2025-10-09T11:35:41.147594Z

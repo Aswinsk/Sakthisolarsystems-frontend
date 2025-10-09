@@ -1,0 +1,73 @@
+{
+  "common": {
+    "companyName": "Your Company Name",
+    "primaryCTA": "Get a Free Solar Quote",
+    "secondaryCTA": "Request a Site Visit",
+    "whatsapp": "Chat on WhatsApp",
+    "phone": "+91-XXXXXXXXXX",
+    "language": "Language",
+    "english": "English",
+    "malayalam": "Malayalam"
+  },
+  "home": {
+    "heroTitle": "Cut Your KSEB Bills with MNRE & BIS-Compliant Solar in Kerala",
+    "heroSubtitle": "On-grid, Hybrid & Off-grid Systems with Quality Inverters & Batteries",
+    "benefits": [
+      "Lower KSEB bills",
+      "Net-metering ready",
+      "Monsoon-proof design"
+    ],
+    "whyTitle": "Why Go Solar in Kerala",
+    "whyCards": [
+      {
+        "title": "Lower KSEB Bills",
+        "desc": "Generate your own power and offset your monthly electricity costs."
+      },
+      {
+        "title": "Net-Metering Ready",
+        "desc": "KSEB-compatible solutions with guidance on approvals."
+      },
+      {
+        "title": "Monsoon-Proof",
+        "desc": "Corrosion-resistant mounts, IP-rated junctions, and robust wiring."
+      },
+      {
+        "title": "Low Maintenance",
+        "desc": "Periodic cleaning and quick-check AMC keep systems efficient."
+      }
+    ],
+    "solutionsTitle": "Our Solutions",
+    "estimatorTitle": "Savings Estimator (INR)",
+    "estimatorBillLabel": "Your monthly KSEB bill (₹)",
+    "estimatorCta": "Estimate Savings",
+    "processTitle": "Our Process",
+    "processSteps": [
+      "Site survey",
+      "Design & Proposal",
+      "KSEB approvals",
+      "Installation",
+      "Commissioning",
+      "AMC support"
+    ],
+    "brandsTitle": "Certifications & Brands",
+    "projectsTitle": "Featured Projects",
+    "testimonialsTitle": "What Clients Say",
+    "finalCtaTitle": "Ready to Start?"
+  },
+  "contact": {
+    "title": "Contact Us",
+    "subtitle": "Get a quick quote or book a site visit.",
+    "form": {
+      "name": "Full name",
+      "email": "Email",
+      "phone": "Phone",
+      "address": "Site address",
+      "propertyType": "Property type",
+      "monthlyBill": "Monthly KSEB bill (₹)",
+      "rooftopArea": "Rooftop area (sq m)",
+      "message": "Message",
+      "submit": "Send Enquiry",
+      "success": "Thanks! We will get back within 1 working day."
+    }
+  }
+}

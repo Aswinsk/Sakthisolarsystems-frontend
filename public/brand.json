@@ -1,1 +1,8 @@
-{"primary":"#F59E0B","secondary":"#0B7C66"}
+{
+  "primary": "#F59E0B",
+  "secondary": "#0B7C66",
+  "accent": "#3b82f6",
+  "glowIntensity": "0.5",
+  "blurStrength": "12px",
+  "animationSpeed": "normal"
+}

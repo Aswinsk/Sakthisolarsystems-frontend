@@ -35,7 +35,7 @@ export function Estimator() {
           </span>
           <input
             type="number"
-            className="w-full bg-black border border-zinc-700 rounded px-12 py-4 text-lg text-white focus:border-white focus:outline-none transition-colors"
+            className="w-full bg-[#0B1220] border border-zinc-700 rounded px-12 py-4 text-lg text-white focus:border-white focus:outline-none transition-colors"
             value={bill}
             onChange={(e) => setBill(e.target.value)}
             min={0}
@@ -48,9 +48,9 @@ export function Estimator() {
       <motion.button
         onClick={handleCalculate}
         disabled={loading}
-        whileHover={{ backgroundColor: loading ? "#FFFFFF" : "#E82127" }}
+        whileHover={{ backgroundColor: loading ? "#FFFFFF" : "#BB1F2C" }}
         whileTap={{ scale: 0.98 }}
-        className="w-full py-4 bg-white text-black font-semibold rounded transition-all mb-6 disabled:opacity-50"
+        className="w-full py-4 bg-[#BB1F2C] text-white font-semibold rounded transition-all mb-6 disabled:opacity-50"
       >
         {loading ? "Calculating..." : "Calculate Savings"}
       </motion.button>
@@ -92,7 +92,7 @@ export function Estimator() {
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ delay: i * 0.1 }}
-                  className="bg-black border border-zinc-800 p-4 rounded"
+                  className="bg-[#0B1220] border border-zinc-800 p-4 rounded"
                 >
                   <div className="text-xs text-gray-400 uppercase tracking-wide mb-2">
                     {item.label}

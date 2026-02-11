@@ -1,0 +1,116 @@
+{
+  "brand": {
+    "name": "Sakthi Solar Systems",
+    "version": "1.0",
+    "colors": {
+      "brandNavy": "#182954",
+      "brandRed": "#BB1F2C",
+      "white": "#FFFFFF",
+      "gray50": "#F7F8FA",
+      "gray100": "#EEF1F5",
+      "gray300": "#A5ACBC",
+      "gray600": "#636F8C",
+      "ink": "#0B1220",
+      "redShade": "#892238",
+      "redTint1": "#CA535D",
+      "redTint2": "#DB8B92"
+    },
+    "typography": {
+      "fontPairs": {
+        "optionA": {
+          "heading": "Space Grotesk",
+          "body": "Inter"
+        },
+        "optionB": {
+          "heading": "Sora",
+          "body": "Source Sans 3"
+        }
+      },
+      "scale": {
+        "h1": {
+          "size": 48,
+          "lineHeight": 56,
+          "weight": 700
+        },
+        "h2": {
+          "size": 34,
+          "lineHeight": 40,
+          "weight": 700
+        },
+        "h3": {
+          "size": 24,
+          "lineHeight": 30,
+          "weight": 600
+        },
+        "body": {
+          "size": 16,
+          "lineHeight": 24,
+          "weight": 400
+        },
+        "small": {
+          "size": 14,
+          "lineHeight": 20,
+          "weight": 400
+        },
+        "label": {
+          "size": 12,
+          "lineHeight": 16,
+          "weight": 600
+        }
+      },
+      "tracking": {
+        "uppercaseHeadingsPercent": [
+          2,
+          4
+        ]
+      }
+    },
+    "layout": {
+      "spacing": [
+        4,
+        8,
+        12,
+        16,
+        24,
+        32,
+        48,
+        64
+      ],
+      "radii": {
+        "sm": 12,
+        "md": 16,
+        "pill": 999
+      },
+      "maxWidth": {
+        "content": 1280
+      },
+      "grid": {
+        "desktopColumns": 12,
+        "mobileColumns": 4
+      }
+    },
+    "components": {
+      "buttonPrimary": {
+        "bg": "{brand.colors.brandRed}",
+        "text": "{brand.colors.white}",
+        "radius": 14,
+        "paddingX": 22,
+        "paddingY": 14
+      },
+      "buttonSecondary": {
+        "bg": "transparent",
+        "border": "{brand.colors.brandNavy}",
+        "text": "{brand.colors.brandNavy}",
+        "radius": 14,
+        "paddingX": 22,
+        "paddingY": 14
+      },
+      "card": {
+        "bg": "{brand.colors.white}",
+        "border": "{brand.colors.gray100}",
+        "radius": 16,
+        "padding": 24
+      }
+    }
+  }
+}

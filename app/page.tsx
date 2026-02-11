@@ -68,7 +68,7 @@ export default function Page() {
   return (
     <div className="overflow-hidden">
       {/* Hero Section with Video Background */}
-      <section className="relative min-h-[90vh] flex items-center overflow-hidden bg-black">
+      <section className="relative min-h-[90vh] flex items-center overflow-hidden bg-[#0B1220]">
         {/* Background image (shows immediately, video optional) */}
         <div className="absolute inset-0">
           <img
@@ -102,9 +102,9 @@ export default function Page() {
               className="flex flex-wrap gap-4"
             >
               <motion.button
-                whileHover={{ backgroundColor: "#E82127" }}
+                whileHover={{ backgroundColor: "#BB1F2C" }}
                 whileTap={{ scale: 0.98 }}
-                className="px-8 py-3 bg-white text-black font-semibold rounded transition-all"
+                className="px-8 py-3 bg-[#BB1F2C] text-white font-semibold rounded transition-all"
               >
                 Order Now
               </motion.button>
@@ -157,7 +157,7 @@ export default function Page() {
       </section>
 
       {/* Calculator Section - Tesla Minimal Style */}
-      <section id="calculator" className="py-20 bg-black relative">
+      <section id="calculator" className="py-20 bg-[#0B1220] relative">
         <div className="relative mx-auto max-w-4xl px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -177,7 +177,7 @@ export default function Page() {
       </section>
 
       {/* Gallery Section - Tesla Clean Grid */}
-      <section className="py-20 bg-black relative overflow-hidden">
+      <section className="py-20 bg-[#0B1220] relative overflow-hidden">
         <div className="relative mx-auto max-w-7xl px-4">
           <motion.div
             initial={{ opacity: 0 }}
@@ -209,7 +209,7 @@ export default function Page() {
                   alt={n.replace("-", " ")}
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                <div className="absolute inset-0 bg-[#0B1220]/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
                   <div className="text-white text-center">
                     <h3 className="text-xl font-semibold capitalize mb-1">{n.replace("-", " ")}</h3>
                     <p className="text-sm">View Details →</p>
@@ -268,7 +268,7 @@ export default function Page() {
       </section>
 
       {/* Specifications Section - Tesla Clean Layout */}
-      <section className="py-20 bg-black relative">
+      <section className="py-20 bg-[#0B1220] relative">
         <div className="relative mx-auto max-w-5xl px-4">
           <motion.div
             initial={{ opacity: 0 }}
@@ -331,14 +331,14 @@ export default function Page() {
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            className="aspect-video bg-black rounded-lg overflow-hidden relative group cursor-pointer"
+            className="aspect-video bg-[#0B1220] rounded-lg overflow-hidden relative group cursor-pointer"
           >
             <img
               src="/images/video-thumbnail.jpg"
               alt="Solar installation video"
               className="w-full h-full object-cover"
             />
-            <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+            <div className="absolute inset-0 bg-[#0B1220]/40 flex items-center justify-center">
               <div className="w-20 h-20 bg-white/90 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
                 <div className="w-0 h-0 border-l-[20px] border-l-black border-t-[12px] border-t-transparent border-b-[12px] border-b-transparent ml-2" />
               </div>
@@ -348,7 +348,7 @@ export default function Page() {
       </section>
 
       {/* Final CTA Section */}
-      <section className="py-20 bg-black relative">
+      <section className="py-20 bg-[#0B1220] relative">
         <div className="mx-auto max-w-4xl px-4 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -362,9 +362,9 @@ export default function Page() {
               Schedule a free consultation and site survey
             </p>
             <motion.button
-              whileHover={{ backgroundColor: "#E82127" }}
+              whileHover={{ backgroundColor: "#BB1F2C" }}
               whileTap={{ scale: 0.98 }}
-              className="px-12 py-4 bg-white text-black font-semibold rounded text-lg transition-all"
+              className="px-12 py-4 bg-[#BB1F2C] text-white font-semibold rounded text-lg transition-all"
             >
               Get Started
             </motion.button>

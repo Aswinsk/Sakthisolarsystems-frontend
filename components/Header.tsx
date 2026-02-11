@@ -42,11 +42,12 @@ export function Header() {
             className="flex items-center gap-3"
           >
             <Image
-              src="/logo.svg"
-              width={160}
-              height={36}
+              src="/logo.png"
+              width={200}
+              height={45}
               alt="Sakthi Solar Systems"
               priority
+              className="h-auto"
             />
             <span className="sr-only">Sakthi Solar Systems</span>
           </motion.div>

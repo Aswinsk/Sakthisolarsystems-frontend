@@ -69,23 +69,13 @@ export default function Page() {
     <div className="overflow-hidden">
       {/* Hero Section with Video Background */}
       <section className="relative min-h-[90vh] flex items-center overflow-hidden bg-black">
-        {/* Video Background - Replace with your actual video */}
+        {/* Background image (shows immediately, video optional) */}
         <div className="absolute inset-0">
-          <video
-            autoPlay
-            muted
-            loop
-            playsInline
+          <img
+            src="/images/hero-rooftop.jpg"
+            alt="Solar panels on rooftop"
             className="w-full h-full object-cover opacity-40"
-          >
-            <source src="/videos/hero-solar-panels.mp4" type="video/mp4" />
-            {/* Fallback image if video doesn't load */}
-            <img
-              src="/images/hero-rooftop.jpg"
-              alt="Solar panels on rooftop"
-              className="w-full h-full object-cover"
-            />
-          </video>
+          />
           <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black" />
         </div>
 
@@ -336,21 +326,23 @@ export default function Page() {
             </p>
           </motion.div>
 
-          {/* Video Player - Replace with your actual video */}
+          {/* Video Player - Shows thumbnail until video is added */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            className="aspect-video bg-black rounded-lg overflow-hidden"
+            className="aspect-video bg-black rounded-lg overflow-hidden relative group cursor-pointer"
           >
-            <video
-              controls
-              className="w-full h-full"
-              poster="/images/video-thumbnail.jpg"
-            >
-              <source src="/videos/installation-process.mp4" type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
+            <img
+              src="/images/video-thumbnail.jpg"
+              alt="Solar installation video"
+              className="w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+              <div className="w-20 h-20 bg-white/90 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
+                <div className="w-0 h-0 border-l-[20px] border-l-black border-t-[12px] border-t-transparent border-b-[12px] border-b-transparent ml-2" />
+              </div>
+            </div>
           </motion.div>
         </div>
       </section>

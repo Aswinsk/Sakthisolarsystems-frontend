@@ -327,7 +327,7 @@ export default function Page() {
                   ))}
                 </div>
 
-                <p className="text-gray-300 mb-6 italic">"{item.text}"</p>
+                <p className="text-gray-300 mb-6 italic">&ldquo;{item.text}&rdquo;</p>
 
                 <div className="flex items-center gap-4">
                   <div className="text-4xl">{item.avatar}</div>

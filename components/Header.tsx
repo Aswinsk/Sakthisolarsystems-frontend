@@ -184,7 +184,6 @@ export function Header() {
               >
                 <LangLink
                   href={link.href}
-                  onClick={() => setMobileMenuOpen(false)}
                   className="block px-4 py-3 rounded-lg hover:bg-white/10 transition-colors"
                 >
                   {link.label}

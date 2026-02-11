@@ -67,33 +67,27 @@ export default function Page() {
 
   return (
     <div className="overflow-hidden">
-      {/* Hero Section */}
-      <section className="relative min-h-[90vh] flex items-center overflow-hidden bg-gradient-to-br from-gray-900 via-gray-800 to-black">
-        {/* Animated Background */}
-        <div className="absolute inset-0 animated-gradient opacity-20" />
-        <div className="absolute inset-0 grid-pattern opacity-10" />
-
-        {/* Floating Particles */}
-        {[...Array(30)].map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute w-1 h-1 bg-primary rounded-full opacity-40"
-            initial={{
-              x: Math.random() * window.innerWidth,
-              y: Math.random() * window.innerHeight
-            }}
-            animate={{
-              y: [0, -30, 0],
-              opacity: [0.2, 0.6, 0.2]
-            }}
-            transition={{
-              duration: 3 + Math.random() * 2,
-              repeat: Infinity,
-              ease: "easeInOut",
-              delay: Math.random() * 2
-            }}
-          />
-        ))}
+      {/* Hero Section with Video Background */}
+      <section className="relative min-h-[90vh] flex items-center overflow-hidden bg-black">
+        {/* Video Background - Replace with your actual video */}
+        <div className="absolute inset-0">
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            className="w-full h-full object-cover opacity-40"
+          >
+            <source src="/videos/hero-solar-panels.mp4" type="video/mp4" />
+            {/* Fallback image if video doesn't load */}
+            <img
+              src="/images/hero-rooftop.jpg"
+              alt="Solar panels on rooftop"
+              className="w-full h-full object-cover"
+            />
+          </video>
+          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black" />
+        </div>
 
         <div className="relative z-10 mx-auto max-w-7xl px-4 py-20 grid md:grid-cols-2 gap-12 items-center">
           {/* Hero Content */}
@@ -102,139 +96,98 @@ export default function Page() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2 }}
-              className="inline-block mb-4 px-4 py-2 glass-card text-sm text-primary font-semibold"
-            >
-              ⚡ MNRE Certified Solar Solutions
-            </motion.div>
-
-            <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
-              <span className="gradient-text text-glow">
-                {t(lang, "home.title")}
-              </span>
+            <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight text-white">
+              {t(lang, "home.title")}
             </h1>
 
-            <p className="text-xl text-gray-300 mb-8 leading-relaxed">
+            <p className="text-xl text-gray-400 mb-12 leading-relaxed max-w-xl">
               {t(lang, "home.desc")}
             </p>
 
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.6 }}
-              className="flex flex-wrap gap-3 mb-6"
-            >
-              <span className="px-4 py-2 glass-card text-sm font-medium text-cyan-400">
-                🏘️ Residential Solar
-              </span>
-              <span className="px-4 py-2 glass-card text-sm font-medium text-green-400">
-                🏢 Commercial Projects
-              </span>
-              <span className="px-4 py-2 glass-card text-sm font-medium text-purple-400">
-                🏭 Industrial Solutions
-              </span>
-            </motion.div>
-
-            {/* Benefits Grid */}
-            <div className="grid grid-cols-2 gap-4 mb-8">
-              {benefits.map((benefit, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.4 + i * 0.1 }}
-                  whileHover={{ scale: 1.05, y: -5 }}
-                  className="glass-card p-4 hover-lift cursor-pointer group"
-                >
-                  <div className={`text-3xl mb-2 bg-gradient-to-r ${benefit.color} bg-clip-text text-transparent`}>
-                    {benefit.icon}
-                  </div>
-                  <p className="text-sm font-medium text-gray-200 group-hover:text-white transition-colors">
-                    {benefit.text}
-                  </p>
-                </motion.div>
-              ))}
-            </div>
-
-            {/* CTA Buttons */}
+            {/* CTA Buttons - Tesla Style */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.8 }}
               className="flex flex-wrap gap-4"
             >
-              <GradientButton className="px-8 py-4 text-lg">
-                Get Free Quote 🚀
-              </GradientButton>
+              <motion.button
+                whileHover={{ backgroundColor: "#E82127" }}
+                whileTap={{ scale: 0.98 }}
+                className="px-8 py-3 bg-white text-black font-semibold rounded transition-all"
+              >
+                Order Now
+              </motion.button>
               <motion.a
                 href="#calculator"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="px-8 py-4 rounded-xl glass-strong text-white font-medium hover-glow transition-all"
+                whileHover={{ backgroundColor: "rgba(255,255,255,0.15)" }}
+                whileTap={{ scale: 0.98 }}
+                className="px-8 py-3 border-2 border-white text-white font-semibold rounded transition-all"
               >
-                Calculate Savings 📊
+                Calculate Savings
               </motion.a>
+            </motion.div>
+
+            {/* Stats - Tesla Style */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 1 }}
+              className="mt-12 flex flex-wrap gap-8 text-sm"
+            >
+              <div>
+                <div className="text-2xl font-bold text-white">₹18,000/kW</div>
+                <div className="text-gray-400">MNRE Subsidy</div>
+              </div>
+              <div>
+                <div className="text-2xl font-bold text-white">90%</div>
+                <div className="text-gray-400">Bill Reduction</div>
+              </div>
+              <div>
+                <div className="text-2xl font-bold text-white">25 Years</div>
+                <div className="text-gray-400">Warranty</div>
+              </div>
             </motion.div>
           </motion.div>
 
-          {/* Hero Image */}
+          {/* Hero Image - Replace with actual solar panel image */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
+            initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.4, duration: 0.8 }}
-            className="relative"
+            className="relative hidden md:block"
           >
-            <div className="relative glass-card p-8 rounded-3xl overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-secondary/20" />
-              <img
-                src="/images/hero-rooftop.svg"
-                alt="Kerala Rooftop Solar"
-                className="relative w-full h-full object-cover rounded-2xl"
-              />
-              <motion.div
-                initial={{ scale: 0 }}
-                animate={{ scale: 1 }}
-                transition={{ delay: 1, type: "spring" }}
-                className="absolute bottom-4 right-4 glass-card p-4 neon-border"
-              >
-                <img
-                  src="/images/inverter.svg"
-                  alt="Solar Inverter"
-                  className="w-32 rounded-lg"
-                />
-              </motion.div>
-            </div>
+            <img
+              src="/images/solar-panels-hero.jpg"
+              alt="Kerala Rooftop Solar Installation"
+              className="w-full h-auto rounded-lg"
+            />
           </motion.div>
         </div>
       </section>
 
-      {/* Calculator Section */}
-      <section id="calculator" className="py-20 bg-gradient-to-b from-black to-gray-900 relative">
-        <div className="absolute inset-0 dots-pattern opacity-5" />
-        <div className="relative mx-auto max-w-7xl px-4">
+      {/* Calculator Section - Tesla Minimal Style */}
+      <section id="calculator" className="py-20 bg-black relative">
+        <div className="relative mx-auto max-w-4xl px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <h2 className="text-4xl md:text-5xl font-bold gradient-text mb-4">
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
               Calculate Your Solar Savings
             </h2>
             <p className="text-gray-400 text-lg">
-              Get instant estimates for your solar investment
+              See how much you can save with solar
             </p>
           </motion.div>
           <Estimator />
         </div>
       </section>
 
-      {/* Gallery Section */}
-      <section className="py-20 bg-gray-900 relative overflow-hidden">
-        <div className="absolute inset-0 animated-gradient opacity-5" />
+      {/* Gallery Section - Tesla Clean Grid */}
+      <section className="py-20 bg-black relative overflow-hidden">
         <div className="relative mx-auto max-w-7xl px-4">
           <motion.div
             initial={{ opacity: 0 }}
@@ -242,38 +195,34 @@ export default function Page() {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <h2 className="text-4xl md:text-5xl font-bold gradient-text mb-4">
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
               Featured Projects
             </h2>
             <p className="text-gray-400 text-lg">
-              Powering Kerala, one rooftop at a time
+              Real installations across Kerala
             </p>
           </motion.div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {["hero-rooftop", "array", "industrial", "battery", "inverter", "kochi", "tvm", "kozhikode"].map((n, i) => (
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-1">
+            {["residential-kochi", "commercial-tvm", "industrial-calicut", "rooftop-thrissur", "hybrid-kannur", "villa-ernakulam"].map((n, i) => (
               <motion.div
                 key={n}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
                 viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                whileHover={{ y: -10 }}
-                className="glass-card overflow-hidden hover-lift cursor-pointer group"
+                transition={{ delay: i * 0.05 }}
+                className="relative overflow-hidden aspect-square group cursor-pointer"
               >
-                <div className="relative overflow-hidden">
-                  <motion.img
-                    whileHover={{ scale: 1.1 }}
-                    transition={{ duration: 0.3 }}
-                    src={`/images/${n}.svg`}
-                    alt={n}
-                    className="w-full h-64 object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
-                    <div className="text-white">
-                      <h3 className="text-xl font-bold capitalize mb-1">{n.replace("-", " ")}</h3>
-                      <p className="text-sm text-gray-300">View Project →</p>
-                    </div>
+                {/* Replace with actual project images */}
+                <img
+                  src={`/images/projects/${n}.jpg`}
+                  alt={n.replace("-", " ")}
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                  <div className="text-white text-center">
+                    <h3 className="text-xl font-semibold capitalize mb-1">{n.replace("-", " ")}</h3>
+                    <p className="text-sm">View Details →</p>
                   </div>
                 </div>
               </motion.div>
@@ -282,9 +231,8 @@ export default function Page() {
         </div>
       </section>
 
-      {/* Testimonials Section */}
-      <section className="py-20 bg-gradient-to-b from-gray-900 to-black relative">
-        <div className="absolute inset-0 grid-pattern opacity-10" />
+      {/* Testimonials Section - Minimal */}
+      <section className="py-20 bg-zinc-900 relative">
         <div className="relative mx-auto max-w-7xl px-4">
           <motion.div
             initial={{ opacity: 0 }}
@@ -292,11 +240,11 @@ export default function Page() {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <h2 className="text-4xl md:text-5xl font-bold gradient-text mb-4">
-              What Our Clients Say
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+              Customer Stories
             </h2>
             <p className="text-gray-400 text-lg">
-              Join hundreds of satisfied customers across Kerala
+              Thousands of Kerala homes powered by solar
             </p>
           </motion.div>
 
@@ -304,37 +252,24 @@ export default function Page() {
             {testimonials.map((item, i) => (
               <motion.div
                 key={i}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: i * 0.2 }}
-                whileHover={{ scale: 1.05 }}
-                className="glass-card p-8 hover-lift"
+                transition={{ delay: i * 0.1 }}
+                className="bg-zinc-800 p-8 rounded"
               >
-                {/* Stars */}
                 <div className="flex gap-1 mb-4">
                   {[...Array(item.rating)].map((_, j) => (
-                    <motion.span
-                      key={j}
-                      initial={{ scale: 0, rotate: -180 }}
-                      whileInView={{ scale: 1, rotate: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ delay: i * 0.2 + j * 0.1 }}
-                      className="text-yellow-400 text-xl"
-                    >
-                      ★
-                    </motion.span>
+                    <span key={j} className="text-white text-xl">★</span>
                   ))}
                 </div>
 
-                <p className="text-gray-300 mb-6 italic">&ldquo;{item.text}&rdquo;</p>
+                <p className="text-gray-300 mb-6">&ldquo;{item.text}&rdquo;</p>
 
-                <div className="flex items-center gap-4">
-                  <div className="text-4xl">{item.avatar}</div>
-                  <div>
-                    <h4 className="font-bold text-white">{item.name}</h4>
-                    <p className="text-sm text-gray-400">{item.location}</p>
-                  </div>
+                <div>
+                  <h4 className="font-semibold text-white">{item.name}</h4>
+                  <p className="text-sm text-gray-400">{item.location}</p>
+                  <p className="text-xs text-gray-500 mt-1">{item.system}</p>
                 </div>
               </motion.div>
             ))}
@@ -342,88 +277,108 @@ export default function Page() {
         </div>
       </section>
 
-      {/* Tech Specs Section */}
-      <section className="py-20 bg-black relative overflow-hidden">
-        <div className="absolute inset-0 animated-gradient opacity-10" />
-        <div className="relative mx-auto max-w-7xl px-4">
+      {/* Specifications Section - Tesla Clean Layout */}
+      <section className="py-20 bg-black relative">
+        <div className="relative mx-auto max-w-5xl px-4">
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+              Technical Specifications
+            </h2>
+            <p className="text-gray-400 text-lg">
+              MNRE certified components with comprehensive warranties
+            </p>
+          </motion.div>
+
+          <div className="space-y-12">
+            {techSpecs.map((spec, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="border-t border-gray-800 pt-8"
+              >
+                <h3 className="text-2xl font-bold text-white mb-6">
+                  {spec.title}
+                </h3>
+                <ul className="space-y-3">
+                  {spec.items.map((item, j) => (
+                    <li key={j} className="text-gray-400 text-lg">
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Video Section - Add Installation/Product Video */}
+      <section className="py-20 bg-zinc-900 relative">
+        <div className="mx-auto max-w-6xl px-4">
           <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <h2 className="text-4xl md:text-5xl font-bold gradient-text mb-4">
-              Certified Excellence
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+              See Solar in Action
             </h2>
             <p className="text-gray-400 text-lg">
-              Quality you can trust, warranties that protect
+              Watch how we transform Kerala homes
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 gap-8">
-            {techSpecs.map((spec, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, x: i === 0 ? -50 : 50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                className="glass-card p-8 neon-border"
-              >
-                <h3 className="text-2xl font-bold gradient-text mb-6">
-                  {spec.title}
-                </h3>
-                <ul className="space-y-4">
-                  {spec.items.map((item, j) => (
-                    <motion.li
-                      key={j}
-                      initial={{ opacity: 0, x: -20 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ delay: j * 0.1 }}
-                      className="flex items-start gap-3 text-gray-300"
-                    >
-                      <span className="text-xl">{item.split(" ")[0]}</span>
-                      <span>{item.substring(item.indexOf(" ") + 1)}</span>
-                    </motion.li>
-                  ))}
-                </ul>
-              </motion.div>
-            ))}
-          </div>
-
-          {/* CTA Banner */}
+          {/* Video Player - Replace with your actual video */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            className="aspect-video bg-black rounded-lg overflow-hidden"
+          >
+            <video
+              controls
+              className="w-full h-full"
+              poster="/images/video-thumbnail.jpg"
+            >
+              <source src="/videos/installation-process.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Final CTA Section */}
+      <section className="py-20 bg-black relative">
+        <div className="mx-auto max-w-4xl px-4 text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="mt-12 text-center glass-card p-12 rounded-3xl neon-border"
           >
-            <h3 className="text-3xl font-bold gradient-text mb-4">
-              Ready to Go Solar in Kerala?
-            </h3>
-            <p className="text-gray-300 mb-6 text-lg">
-              Get a FREE site survey and customized quote for your home or business
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+              Ready to Go Solar?
+            </h2>
+            <p className="text-xl text-gray-400 mb-8">
+              Schedule a free consultation and site survey
             </p>
-            <div className="flex flex-wrap justify-center gap-4 mb-6">
-              <div className="glass px-6 py-3 rounded-xl">
-                <div className="text-2xl font-bold gradient-text">3-5 kW</div>
-                <div className="text-sm text-gray-400">Avg. Home Systems</div>
-              </div>
-              <div className="glass px-6 py-3 rounded-xl">
-                <div className="text-2xl font-bold gradient-text">4-6 Years</div>
-                <div className="text-sm text-gray-400">Typical ROI</div>
-              </div>
-              <div className="glass px-6 py-3 rounded-xl">
-                <div className="text-2xl font-bold gradient-text">25+ Years</div>
-                <div className="text-sm text-gray-400">System Lifespan</div>
-              </div>
-            </div>
-            <p className="text-gray-400 text-sm mb-8">
-              Serving Kochi | Thiruvananthapuram | Kozhikode | Thrissur | Kannur | All Kerala
+            <motion.button
+              whileHover={{ backgroundColor: "#E82127" }}
+              whileTap={{ scale: 0.98 }}
+              className="px-12 py-4 bg-white text-black font-semibold rounded text-lg transition-all"
+            >
+              Get Started
+            </motion.button>
+            <p className="mt-6 text-sm text-gray-500">
+              Serving Kochi · Thiruvananthapuram · Kozhikode · Thrissur · Kannur · All Kerala
             </p>
-            <GradientButton className="px-10 py-5 text-xl">
-              Schedule Free Consultation 📞
-            </GradientButton>
           </motion.div>
         </div>
       </section>

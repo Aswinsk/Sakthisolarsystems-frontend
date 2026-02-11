@@ -18,24 +18,19 @@ export function Estimator() {
   };
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5 }}
-      className="bg-zinc-900 border border-zinc-800 rounded p-8 max-w-2xl mx-auto"
-    >
-      {/* Input Section */}
+    <div className="bg-gray-50 border border-gray-200 rounded p-8">
+      {/* Input */}
       <div className="mb-6">
-        <label className="block text-sm font-medium mb-3 text-white">
+        <label className="block text-sm font-medium mb-3 text-gray-700">
           Monthly Electricity Bill
         </label>
         <div className="relative">
-          <span className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400">
+          <span className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500 text-lg">
             ₹
           </span>
           <input
             type="number"
-            className="w-full bg-[#0B1220] border border-zinc-700 rounded px-12 py-4 text-lg text-white focus:border-white focus:outline-none transition-colors"
+            className="w-full bg-white border border-gray-300 rounded px-12 py-4 text-lg text-gray-900 focus:outline-none focus:border-[#182954] transition-colors"
             value={bill}
             onChange={(e) => setBill(e.target.value)}
             min={0}
@@ -44,18 +39,16 @@ export function Estimator() {
         </div>
       </div>
 
-      {/* Calculate Button */}
-      <motion.button
+      {/* Button */}
+      <button
         onClick={handleCalculate}
         disabled={loading}
-        whileHover={{ backgroundColor: loading ? "#FFFFFF" : "#BB1F2C" }}
-        whileTap={{ scale: 0.98 }}
-        className="w-full py-4 bg-[#BB1F2C] text-white font-semibold rounded transition-all mb-6 disabled:opacity-50"
+        className="w-full py-4 bg-[#BB1F2C] text-white font-semibold rounded hover:bg-[#892238] transition-colors mb-6 disabled:opacity-50"
       >
         {loading ? "Calculating..." : "Calculate Savings"}
-      </motion.button>
+      </button>
 
-      {/* Results Section */}
+      {/* Results */}
       <AnimatePresence>
         {res && (
           <motion.div
@@ -64,40 +57,24 @@ export function Estimator() {
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.4 }}
           >
-            <div className="grid grid-cols-2 gap-4 mb-4 pt-6 border-t border-zinc-800">
+            <div className="grid grid-cols-2 gap-4 pt-6 border-t border-gray-200">
               {[
-                {
-                  label: "System Size",
-                  value: res.recommendedKW,
-                  suffix: " kW"
-                },
-                {
-                  label: "Monthly Generation",
-                  value: res.genKWh,
-                  suffix: " kWh"
-                },
-                {
-                  label: "Bill Reduction",
-                  value: res.billReductionPct,
-                  suffix: "%"
-                },
-                {
-                  label: "Payback Period",
-                  value: res.paybackYears,
-                  suffix: " years"
-                }
+                { label: "System Size", value: res.recommendedKW, suffix: " kW" },
+                { label: "Monthly Generation", value: res.genKWh, suffix: " kWh" },
+                { label: "Bill Reduction", value: res.billReductionPct, suffix: "%" },
+                { label: "Payback Period", value: res.paybackYears, suffix: " years" }
               ].map((item, i) => (
                 <motion.div
                   key={item.label}
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ delay: i * 0.1 }}
-                  className="bg-[#0B1220] border border-zinc-800 p-4 rounded"
+                  className="text-center p-4"
                 >
-                  <div className="text-xs text-gray-400 uppercase tracking-wide mb-2">
+                  <div className="text-xs text-gray-500 uppercase tracking-wide mb-2">
                     {item.label}
                   </div>
-                  <div className="text-2xl font-bold text-white">
+                  <div className="text-3xl font-bold text-[#182954]">
                     <Counter
                       to={item.value}
                       duration={1.5}
@@ -112,11 +89,9 @@ export function Estimator() {
         )}
       </AnimatePresence>
 
-      {/* Disclaimer */}
-      <p className="text-xs text-gray-500 text-center mt-4">
-        Estimates based on average Kerala conditions. Actual results may vary.
+      <p className="text-xs text-gray-500 text-center mt-6">
+        Estimates based on average Kerala conditions
       </p>
-    </motion.div>
+    </div>
   );
 }
-

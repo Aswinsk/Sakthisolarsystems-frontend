@@ -18,19 +18,19 @@ export function Estimator() {
   };
 
   return (
-    <div className="bg-gray-50 border border-gray-200 rounded p-8">
+    <div className="bg-white border border-gray-200 rounded-2xl p-8 md:p-12 shadow-sm">
       {/* Input */}
-      <div className="mb-6">
-        <label className="block text-sm font-medium mb-3 text-gray-700">
-          Monthly Electricity Bill
+      <div className="mb-8">
+        <label className="block text-base font-medium mb-4 text-[#111111]">
+          Enter Your Monthly Electricity Bill
         </label>
         <div className="relative">
-          <span className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500 text-lg">
+          <span className="absolute left-5 top-1/2 -translate-y-1/2 text-gray-500 text-xl font-medium">
             ₹
           </span>
           <input
             type="number"
-            className="w-full bg-white border border-gray-300 rounded px-12 py-4 text-lg text-gray-900 focus:outline-none focus:border-[#182954] transition-colors"
+            className="w-full bg-white border-2 border-gray-200 rounded-xl px-16 py-5 text-xl text-[#111111] font-medium focus:outline-none focus:border-[#0B3D2E] transition-colors"
             value={bill}
             onChange={(e) => setBill(e.target.value)}
             min={0}
@@ -40,13 +40,15 @@ export function Estimator() {
       </div>
 
       {/* Button */}
-      <button
+      <motion.button
         onClick={handleCalculate}
         disabled={loading}
-        className="w-full py-4 bg-[#BB1F2C] text-white font-semibold rounded hover:bg-[#892238] transition-colors mb-6 disabled:opacity-50"
+        whileHover={{ y: -2, boxShadow: "0 12px 24px rgba(164, 208, 55, 0.3)" }}
+        whileTap={{ scale: 0.98 }}
+        className="w-full py-5 bg-[#A4D037] text-[#111111] font-bold text-lg rounded-xl transition-all mb-8 disabled:opacity-50"
       >
-        {loading ? "Calculating..." : "Calculate Savings"}
-      </button>
+        {loading ? "Calculating..." : "Calculate My Savings"}
+      </motion.button>
 
       {/* Results */}
       <AnimatePresence>
@@ -57,7 +59,7 @@ export function Estimator() {
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.4 }}
           >
-            <div className="grid grid-cols-2 gap-4 pt-6 border-t border-gray-200">
+            <div className="grid grid-cols-2 gap-6 pt-8 border-t-2 border-gray-100">
               {[
                 { label: "System Size", value: res.recommendedKW, suffix: " kW" },
                 { label: "Monthly Generation", value: res.genKWh, suffix: " kWh" },
@@ -66,15 +68,15 @@ export function Estimator() {
               ].map((item, i) => (
                 <motion.div
                   key={item.label}
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: i * 0.1 }}
-                  className="text-center p-4"
+                  className="text-center p-6 bg-[#F7F9FB] rounded-xl"
                 >
-                  <div className="text-xs text-gray-500 uppercase tracking-wide mb-2">
+                  <div className="text-xs text-gray-500 uppercase tracking-wider font-medium mb-3">
                     {item.label}
                   </div>
-                  <div className="text-3xl font-bold text-[#182954]">
+                  <div className="text-4xl font-bold text-[#0B3D2E]">
                     <Counter
                       to={item.value}
                       duration={1.5}
@@ -89,8 +91,8 @@ export function Estimator() {
         )}
       </AnimatePresence>
 
-      <p className="text-xs text-gray-500 text-center mt-6">
-        Estimates based on average Kerala conditions
+      <p className="text-sm text-gray-500 text-center mt-8">
+        *Estimates based on average Kerala sunlight conditions and KSEB rates
       </p>
     </div>
   );

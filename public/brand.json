@@ -1,9 +1,10 @@
 {
-  "primary": "#BB1F2C",
-  "secondary": "#182954",
-  "accent": "#FFFFFF",
-  "ink": "#0B1220",
-  "glowIntensity": "0.3",
-  "blurStrength": "8px",
+  "primary": "#0B3D2E",
+  "secondary": "#A4D037",
+  "accent": "#111111",
+  "background": "#FFFFFF",
+  "greyBg": "#F7F9FB",
+  "glowIntensity": "0.1",
+  "blurStrength": "4px",
   "animationSpeed": "normal"
 }

@@ -2,14 +2,14 @@
 import Image from "next/image";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { LangLink, useLang } from "@/components/Lang";
-import { motion } from "framer-motion";
-import { useState } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useState, useEffect } from "react";
 
 const navLinks = [
+  { href: "/", label: "Home" },
+  { href: "#solutions", label: "Solutions" },
+  { href: "#projects", label: "Projects" },
   { href: "/about", label: "About" },
-  { href: "/services", label: "Services" },
-  { href: "/projects", label: "Projects" },
-  { href: "/faqs", label: "FAQs" },
   { href: "/contact", label: "Contact" }
 ];
 
@@ -19,6 +19,15 @@ export function Header() {
   const p = useSearchParams();
   const lang = useLang();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const sw = (l: "en" | "ml") => {
     const q = new URLSearchParams(p as any);
@@ -31,168 +40,89 @@ export function Header() {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
-      className="sticky top-0 z-50 glass-card shadow-glow"
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        scrolled
+          ? "bg-white/95 backdrop-blur-lg shadow-sm border-b border-gray-100"
+          : "bg-transparent"
+      }`}
     >
-      <div className="mx-auto max-w-7xl px-4 h-[var(--header-height)] flex items-center justify-between">
+      <div className="max-w-[1200px] mx-auto px-6 md:px-12 h-20 flex items-center justify-between">
         {/* Logo */}
         <LangLink href="/">
-          <motion.div
-            whileHover={{ scale: 1.05 }}
-            transition={{ duration: 0.2 }}
-            className="flex items-center gap-3"
-          >
+          <motion.div whileHover={{ scale: 1.02 }} className="flex items-center">
             <Image
               src="/logo.png"
-              width={200}
-              height={45}
+              width={180}
+              height={40}
               alt="Sakthi Solar Systems"
               priority
-              className="h-auto"
+              className="h-10 w-auto"
             />
-            <span className="sr-only">Sakthi Solar Systems</span>
           </motion.div>
         </LangLink>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center gap-6 text-sm font-medium">
-          {navLinks.map((link, i) => (
-            <motion.div
+        <nav className="hidden md:flex items-center gap-8">
+          {navLinks.map((link) => (
+            <a
               key={link.href}
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: i * 0.1, duration: 0.5 }}
+              href={link.href}
+              className="text-[#111111] text-base font-medium hover:text-[#0B3D2E] transition-colors relative group"
             >
-              <LangLink
-                href={link.href}
-                className="relative hover:text-primary transition-colors duration-300 group"
-              >
-                {link.label}
-                <motion.span
-                  className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-bg group-hover:w-full transition-all duration-300"
-                  whileHover={{ width: "100%" }}
-                />
-              </LangLink>
-            </motion.div>
+              {link.label}
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#A4D037] group-hover:w-full transition-all duration-300" />
+            </a>
           ))}
         </nav>
 
-        {/* CTA Buttons & Language Switcher */}
-        <div className="flex items-center gap-3">
-          {/* WhatsApp Button */}
-          <motion.a
-            href="https://wa.me/91XXXXXXXXXX?text=Hi%2C%20I%27m%20interested%20in%20a%20solar%20quote"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="hidden sm:inline-flex px-4 py-2 rounded-xl bg-gradient-to-r from-secondary to-secondary/80 text-white text-sm shadow-soft hover-glow transition-all duration-300"
-          >
-            WhatsApp
-          </motion.a>
-
-          {/* Phone Button */}
-          <motion.a
-            href="tel:+91XXXXXXXXXX"
-            whileHover={{ scale: 1.05, boxShadow: "0 0 20px var(--glow-primary)" }}
-            whileTap={{ scale: 0.95 }}
-            className="px-4 py-2 rounded-xl gradient-bg text-white text-sm shadow-soft transition-all duration-300"
-          >
-            +91-XXXXXXXXXX
-          </motion.a>
-
-          {/* Language Switcher */}
-          <div className="ml-2 glass rounded-xl p-1 flex gap-1">
-            <motion.button
-              onClick={() => sw("en")}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-all duration-300 ${
-                lang === "en"
-                  ? "gradient-bg text-white shadow-glow"
-                  : "hover:bg-white/10"
-              }`}
-            >
-              EN
-            </motion.button>
-            <motion.button
-              onClick={() => sw("ml")}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-all duration-300 ${
-                lang === "ml"
-                  ? "gradient-bg text-white shadow-glow"
-                  : "hover:bg-white/10"
-              }`}
-            >
-              ML
-            </motion.button>
-          </div>
-
-          {/* Mobile Menu Button */}
+        {/* CTA Button */}
+        <div className="hidden md:flex items-center gap-4">
           <motion.button
-            whileTap={{ scale: 0.9 }}
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden p-2 rounded-lg glass hover:bg-white/10 transition-colors"
-            aria-label="Toggle menu"
+            whileHover={{ y: -2, boxShadow: "0 8px 16px rgba(164, 208, 55, 0.3)" }}
+            whileTap={{ scale: 0.98 }}
+            className="bg-[#A4D037] text-[#111111] px-6 py-2.5 rounded-lg text-sm font-medium transition-shadow"
           >
-            <svg
-              className="w-6 h-6"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              {mobileMenuOpen ? (
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              ) : (
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M4 6h16M4 12h16M4 18h16"
-                />
-              )}
-            </svg>
+            Get Quote
           </motion.button>
         </div>
-      </div>
 
-      {/* Animated Gradient Bar */}
-      <motion.div
-        className="h-1 animated-gradient"
-        initial={{ scaleX: 0 }}
-        animate={{ scaleX: 1 }}
-        transition={{ delay: 0.5, duration: 0.8 }}
-      />
+        {/* Mobile Menu Button */}
+        <button
+          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          className="md:hidden p-2"
+        >
+          <div className="w-6 h-5 flex flex-col justify-between">
+            <span className={`w-full h-0.5 bg-[#111111] transition-all ${mobileMenuOpen ? 'rotate-45 translate-y-2' : ''}`} />
+            <span className={`w-full h-0.5 bg-[#111111] transition-all ${mobileMenuOpen ? 'opacity-0' : ''}`} />
+            <span className={`w-full h-0.5 bg-[#111111] transition-all ${mobileMenuOpen ? '-rotate-45 -translate-y-2' : ''}`} />
+          </div>
+        </button>
+      </div>
 
       {/* Mobile Menu */}
       {mobileMenuOpen && (
-        <motion.nav
+        <motion.div
           initial={{ opacity: 0, height: 0 }}
           animate={{ opacity: 1, height: "auto" }}
           exit={{ opacity: 0, height: 0 }}
-          className="md:hidden glass-strong border-t border-white/10"
+          className="md:hidden bg-white border-t border-gray-100"
         >
-          <div className="px-4 py-4 space-y-2">
-            {navLinks.map((link, i) => (
-              <motion.div
+          <nav className="flex flex-col p-6 space-y-4">
+            {navLinks.map((link) => (
+              <a
                 key={link.href}
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: i * 0.05 }}
+                href={link.href}
+                onClick={() => setMobileMenuOpen(false)}
+                className="text-[#111111] text-lg font-medium hover:text-[#0B3D2E] transition-colors"
               >
-                <LangLink
-                  href={link.href}
-                  className="block px-4 py-3 rounded-lg hover:bg-white/10 transition-colors"
-                >
-                  {link.label}
-                </LangLink>
-              </motion.div>
+                {link.label}
+              </a>
             ))}
-          </div>
-        </motion.nav>
+            <button className="bg-[#A4D037] text-[#111111] px-6 py-3 rounded-lg text-base font-medium w-full">
+              Get Quote
+            </button>
+          </nav>
+        </motion.div>
       )}
     </motion.header>
   );

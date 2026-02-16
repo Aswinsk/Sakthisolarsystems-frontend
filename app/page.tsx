@@ -13,18 +13,20 @@ export default function Page() {
   };
 
   return (
-    <div className="bg-white">
+    <div className="bg-white overflow-x-hidden">
       {/* Main content wrapper with 100px gaps */}
-      <div className="flex flex-col gap-[100px] py-[100px]">
+      <div className="flex flex-col gap-[60px] md:gap-[100px] pt-28 md:pt-32 pb-[60px] md:pb-[100px]">
 
         {/* 1. Hero Section */}
-        <section className="relative min-h-[80vh] flex items-center overflow-hidden">
+        <section className="relative min-h-[85vh] flex items-center overflow-hidden">
           {/* Gradient blobs */}
           <div className="gradient-blob blob-red animate-float" style={{
+            position: 'absolute',
             top: '-200px', right: '-200px',
             width: '600px', height: '600px'
           }} />
-          <div className="gradient-blob blob-navy" style={{
+          <div className="gradient-blob blob-navy animate-float" style={{
+            position: 'absolute',
             bottom: '-150px', left: '-150px',
             width: '500px', height: '500px',
             animationDelay: '4s'
@@ -159,7 +161,7 @@ export default function Page() {
         </section>
 
         {/* 3. Why Solar - Merged Problem/Solution */}
-        <section className="w-full bg-[#F8F9FA] py-24 -my-12">
+        <section className="w-full bg-[#F8F9FA] py-16 md:py-24 -my-8 md:-my-12">
           <div className="max-w-[1200px] mx-auto px-6 md:px-12">
             <motion.h2
               {...fadeInUp}
@@ -277,7 +279,7 @@ export default function Page() {
         </section>
 
         {/* 5. Process - Simplified to 3 steps */}
-        <section className="w-full bg-[#F8F9FA] py-24 -my-12">
+        <section className="w-full bg-[#F8F9FA] py-16 md:py-24 -my-8 md:-my-12">
           <div className="max-w-[1200px] mx-auto px-6 md:px-12">
             <motion.h2
               {...fadeInUp}
@@ -387,7 +389,7 @@ export default function Page() {
         </section>
 
         {/* 7. Calculator Section */}
-        <section className="w-full bg-[#F8F9FA] py-24 -my-12">
+        <section className="w-full bg-[#F8F9FA] py-16 md:py-24 -my-8 md:-my-12">
           <div className="max-w-[800px] mx-auto px-6 md:px-12">
             <motion.h2
               {...fadeInUp}
@@ -414,13 +416,14 @@ export default function Page() {
         <section className="w-full relative overflow-hidden">
           {/* Gradient blobs */}
           <div className="gradient-blob blob-navy animate-float" style={{
+            position: 'absolute',
             top: '-100px', left: '50%',
             transform: 'translateX(-50%)',
             width: '800px', height: '800px',
             animationDelay: '2s'
           }} />
 
-          <div className="max-w-[1200px] mx-auto px-6 md:px-12 py-24 relative z-10 text-center">
+          <div className="max-w-[1200px] mx-auto px-6 md:px-12 py-16 md:py-24 relative z-10 text-center">
             <motion.h2
               {...fadeInUp}
               className="text-[48px] md:text-[56px] font-bold text-[#182954] mb-6"

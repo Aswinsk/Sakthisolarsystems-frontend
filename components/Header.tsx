@@ -43,13 +43,13 @@ export function Header() {
         transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
         className="fixed left-1/2 z-50 transition-all duration-300"
         style={{
-          top: scrolled ? '20px' : '25px',
+          top: scrolled ? '16px' : '20px',
           transform: 'translateX(-50%)',
-          width: 'calc(100% - 48px)',
+          width: 'calc(100% - 32px)',
           maxWidth: '1200px',
         }}
       >
-      <div className={`flex items-center justify-between h-16 px-6 md:px-8 rounded-2xl transition-all duration-300 ${
+      <div className={`flex items-center justify-between h-14 md:h-16 px-4 md:px-8 rounded-xl md:rounded-2xl transition-all duration-300 ${
         scrolled
           ? "bg-gradient-to-br from-white/90 to-white/80 backdrop-blur-md shadow-glass-strong"
           : "bg-gradient-to-br from-white/80 to-white/60 backdrop-blur-md shadow-glass"
@@ -133,11 +133,15 @@ export function Header() {
           initial={{ opacity: 0, height: 0 }}
           animate={{ opacity: 1, height: "auto" }}
           exit={{ opacity: 0, height: 0 }}
-          className="md:hidden mt-2 rounded-2xl overflow-hidden"
+          className="md:hidden mt-2 rounded-xl overflow-hidden fixed left-1/2 z-40 transition-all duration-300"
           style={{
-            background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.8))',
-            backdropFilter: 'blur(12px)',
-            WebkitBackdropFilter: 'blur(12px)',
+            transform: 'translateX(-50%)',
+            width: 'calc(100% - 32px)',
+            maxWidth: '1200px',
+            top: scrolled ? '72px' : '76px',
+            background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.9))',
+            backdropFilter: 'blur(16px)',
+            WebkitBackdropFilter: 'blur(16px)',
             border: '1px solid rgba(255, 255, 255, 0.5)',
             boxShadow: 'inset 0 1px 0 rgba(255, 255, 255, 0.9), 0 8px 32px rgba(24, 41, 84, 0.08)'
           }}

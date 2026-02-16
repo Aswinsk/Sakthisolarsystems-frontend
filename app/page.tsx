@@ -2,6 +2,7 @@
 import { Estimator } from "@/components/Estimator";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Page() {
   const fadeInUp = {
@@ -148,7 +149,7 @@ export default function Page() {
 
             <motion.div {...fadeInUp} transition={{ delay: 0.2 }}>
               <p className="text-2xl md:text-3xl font-bold text-[#0B3D2E] mb-6 leading-tight">
-                Solar energy is no longer optional — it's essential.
+                Solar energy is no longer optional — it&apos;s essential.
               </p>
             </motion.div>
           </div>
@@ -396,9 +397,11 @@ export default function Page() {
                 whileHover={{ y: -4 }}
                 className="relative group cursor-pointer overflow-hidden rounded-lg bg-white border border-gray-200"
               >
-                <img
+                <Image
                   src={`/images/projects/${["residential-kochi", "commercial-tvm", "rooftop-thrissur"][i]}.jpg`}
                   alt={project.name}
+                  width={800}
+                  height={320}
                   className="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
@@ -555,7 +558,7 @@ export default function Page() {
                 className="bg-[#F7F9FB] p-8 rounded-xl border border-gray-200"
               >
                 <p className="text-lg text-gray-700 mb-6 leading-relaxed italic">
-                  "{testimonial.quote}"
+                  &ldquo;{testimonial.quote}&rdquo;
                 </p>
                 <p className="text-sm font-medium text-[#0B3D2E]">
                   — {testimonial.name}

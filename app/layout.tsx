@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Roboto } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
@@ -7,8 +7,8 @@ import { LangProvider } from "@/components/Lang";
 import BrandLoader from "@/components/BrandLoader";
 import { Suspense } from "react";
 
-const roboto = Roboto({
-  weight: ["400", "500", "700"],
+const inter = Inter({
+  weight: ["300", "400", "500", "700"],
   subsets: ["latin"],
   display: "swap",
 });
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className={`${roboto.className} text-[#111111] antialiased bg-white`}>
+      <body className={`${inter.className} text-[#182954] antialiased bg-white`} style={{ letterSpacing: '-0.01em' }}>
         <BrandLoader />
         <Suspense fallback={<div className='h-20' />}>
           <LangProvider>

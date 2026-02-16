@@ -7,8 +7,8 @@ const footerSections = [
     title: "Address",
     content: (
       <>
-        <p className="text-gray-300">Kerala, India</p>
-        <p className="text-gray-400 text-xs mt-2">
+        <p className="text-[#182954] text-sm" style={{ letterSpacing: '-0.01em' }}>Kerala, India</p>
+        <p className="text-gray-400 text-xs mt-2" style={{ letterSpacing: '-0.01em' }}>
           Service statewide: Kochi, Thiruvananthapuram, Kozhikode, Thrissur & more
         </p>
       </>
@@ -28,16 +28,16 @@ const footerSections = [
     content: (
       <div className="space-y-2">
         <div className="flex items-center gap-2">
-          <span className="text-2xl">✓</span>
-          <span className="text-gray-300">MNRE Certified</span>
+          <span className="text-[#BB1F2C]">✓</span>
+          <span className="text-[#182954] text-sm" style={{ letterSpacing: '-0.01em' }}>MNRE Certified</span>
         </div>
         <div className="flex items-center gap-2">
-          <span className="text-2xl">✓</span>
-          <span className="text-gray-300">BIS Compliant</span>
+          <span className="text-[#BB1F2C]">✓</span>
+          <span className="text-[#182954] text-sm" style={{ letterSpacing: '-0.01em' }}>BIS Compliant</span>
         </div>
         <div className="flex items-center gap-2">
-          <span className="text-2xl">✓</span>
-          <span className="text-gray-300">ISI Approved</span>
+          <span className="text-[#BB1F2C]">✓</span>
+          <span className="text-[#182954] text-sm" style={{ letterSpacing: '-0.01em' }}>ISI Approved</span>
         </div>
       </div>
     )
@@ -45,102 +45,72 @@ const footerSections = [
   {
     title: "Follow Us",
     social: [
-      { href: "#", label: "Facebook", icon: "📘" },
-      { href: "#", label: "Instagram", icon: "📷" },
-      { href: "#", label: "LinkedIn", icon: "💼" },
-      { href: "#", label: "YouTube", icon: "🎥" }
+      { href: "#", label: "Facebook" },
+      { href: "#", label: "Instagram" },
+      { href: "#", label: "LinkedIn" },
+      { href: "#", label: "YouTube" }
     ]
   }
 ];
 
 export function Footer() {
   return (
-    <footer className="relative overflow-hidden mt-20">
-      {/* Animated Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-surface-darker via-surface-dark to-surface-darker" />
-      <div className="absolute inset-0 animated-gradient opacity-10" />
-      <div className="absolute inset-0 grid-pattern opacity-20" />
-
-      <div className="relative">
+    <footer className="bg-[#F8F9FA] pt-16 pb-8 mt-20">
+      <div className="mx-auto max-w-[1200px] px-6 md:px-12">
         {/* Main Footer Content */}
-        <div className="mx-auto max-w-7xl px-4 py-16">
-          <div className="grid md:grid-cols-4 gap-8">
-            {footerSections.map((section, i) => (
-              <motion.div
-                key={section.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1, duration: 0.6 }}
-                className="glass-card p-6 hover-lift"
-              >
-                <h4 className="font-bold text-lg mb-4 gradient-text">
-                  {section.title}
-                </h4>
+        <div className="grid md:grid-cols-4 gap-12 mb-12">
+          {footerSections.map((section, i) => (
+            <motion.div
+              key={section.title}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.1, duration: 0.6 }}
+            >
+              <h4 className="font-bold text-base mb-4 text-[#182954]" style={{ letterSpacing: '-0.01em' }}>
+                {section.title}
+              </h4>
 
-                {/* Content */}
-                {section.content && <div>{section.content}</div>}
+              {/* Content */}
+              {section.content && <div>{section.content}</div>}
 
-                {/* Links */}
-                {section.links && (
-                  <ul className="space-y-2">
-                    {section.links.map((link) => (
-                      <li key={link.href}>
-                        <LangLink
-                          href={link.href}
-                          className="text-gray-300 hover:text-primary transition-colors duration-300 flex items-center gap-2 group"
-                        >
-                          <motion.span
-                            className="text-primary opacity-0 group-hover:opacity-100 transition-opacity"
-                            initial={{ x: -5 }}
-                            whileHover={{ x: 0 }}
-                          >
-                            →
-                          </motion.span>
-                          {link.label}
-                        </LangLink>
-                      </li>
-                    ))}
-                  </ul>
-                )}
+              {/* Links */}
+              {section.links && (
+                <ul className="space-y-2">
+                  {section.links.map((link) => (
+                    <li key={link.href}>
+                      <LangLink
+                        href={link.href}
+                        className="text-[#182954] hover:text-[#BB1F2C] transition-colors duration-300 text-sm"
+                      >
+                        {link.label}
+                      </LangLink>
+                    </li>
+                  ))}
+                </ul>
+              )}
 
-                {/* Social Links */}
-                {section.social && (
-                  <ul className="space-y-3">
-                    {section.social.map((social) => (
-                      <motion.li key={social.label}>
-                        <motion.a
-                          href={social.href}
-                          whileHover={{ scale: 1.05, x: 5 }}
-                          className="text-gray-300 hover:text-primary transition-all duration-300 flex items-center gap-3 group"
-                        >
-                          <motion.span
-                            className="text-2xl"
-                            whileHover={{ scale: 1.2, rotate: 5 }}
-                          >
-                            {social.icon}
-                          </motion.span>
-                          <span className="group-hover:glow-primary">
-                            {social.label}
-                          </span>
-                        </motion.a>
-                      </motion.li>
-                    ))}
-                  </ul>
-                )}
-              </motion.div>
-            ))}
-          </div>
+              {/* Social Links */}
+              {section.social && (
+                <ul className="space-y-2">
+                  {section.social.map((social) => (
+                    <li key={social.label}>
+                      <a
+                        href={social.href}
+                        className="text-[#182954] hover:text-[#BB1F2C] transition-colors duration-300 text-sm"
+                      >
+                        {social.label}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </motion.div>
+          ))}
         </div>
 
-        {/* Animated Separator */}
-        <motion.div
-          className="h-1 animated-gradient mx-auto max-w-7xl"
-          initial={{ scaleX: 0 }}
-          whileInView={{ scaleX: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 1 }}
-        />
+        {/* Simple Divider */}
+        <div className="h-px bg-gray-200 mb-8" />
 
         {/* Copyright */}
         <motion.div
@@ -148,13 +118,12 @@ export function Footer() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.3 }}
-          className="py-8 text-center"
+          className="text-center"
         >
-          <p className="text-gray-400 text-sm">
-            © {new Date().getFullYear()} Sakthi Solar Systems. All rights
-            reserved.
+          <p className="text-[#182954] opacity-40 text-sm" style={{ letterSpacing: '-0.01em' }}>
+            © {new Date().getFullYear()} Sakthi Solar Systems. All rights reserved.
           </p>
-          <p className="text-gray-500 text-xs mt-2">
+          <p className="text-[#182954] opacity-30 text-xs mt-2" style={{ letterSpacing: '-0.01em' }}>
             Powering Kerala with clean, sustainable energy
           </p>
         </motion.div>
